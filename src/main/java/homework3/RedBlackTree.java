@@ -43,8 +43,6 @@ public class RedBlackTree<Entry> {
         if (cmp < 0) h.left = put(h.left, searchableName, entry);
         else if (cmp > 0) h.right = put(h.right, searchableName, entry);
         else h.values.add(entry);
-
-        // fix-up any right-leaning links
         if (isRed(h.right) && !isRed(h.left)) h = rotateLeft(h);
         if (isRed(h.left) && isRed(h.left.left)) h = rotateRight(h);
         if (isRed(h.left) && isRed(h.right)) flipColors(h);
@@ -89,5 +87,4 @@ public class RedBlackTree<Entry> {
         h.left.color = !h.left.color;
         h.right.color = !h.right.color;
     }
-    // implement additional methods and properties for red-black tree
 }
